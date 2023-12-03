@@ -108,12 +108,13 @@ const NavbarCom = () => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader>Menu</ModalHeader>
+              <ModalHeader></ModalHeader>
               <ModalBody>
                 {menuItems.map((item, index) => (
                   <Link
                     key={index}
                     href={`/${item === 'Home' ? '' : item.toLowerCase()}`}
+                    onClick={onClose}
                   >
                     <p className="text-lg font-medium">{item}</p>
                   </Link>
@@ -122,7 +123,10 @@ const NavbarCom = () => {
                   {theme === 'dark' ? (
                     <div
                       className="bg-white cursor-pointer p-1 rounded-full w-7"
-                      onClick={() => setTheme('light')}
+                      onClick={() => {
+                        setTheme('light');
+                        onClose();
+                      }}
                     >
                       <Image
                         width={'25px'}
@@ -134,7 +138,10 @@ const NavbarCom = () => {
                   ) : (
                     <div
                       className="w-7 cursor-pointer p-1 rounded-full bg-[#ccc]"
-                      onClick={() => setTheme('dark')}
+                      onClick={() => {
+                        setTheme('dark');
+                        onClose();
+                      }}
                     >
                       <Image
                         width={'25px'}
