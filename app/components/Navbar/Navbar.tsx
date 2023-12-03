@@ -110,8 +110,11 @@ const NavbarCom = () => {
             <>
               <ModalHeader>Menu</ModalHeader>
               <ModalBody>
-                {menuItems.map((item) => (
-                  <Link href={`/${item === 'Home' ? '' : item.toLowerCase()}`}>
+                {menuItems.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={`/${item === 'Home' ? '' : item.toLowerCase()}`}
+                  >
                     <p className="text-lg font-medium">{item}</p>
                   </Link>
                 ))}
