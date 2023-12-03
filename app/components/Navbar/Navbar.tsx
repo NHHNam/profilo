@@ -33,11 +33,13 @@ const NavbarCom = () => {
   return (
     <Navbar isBordered className="mb-2">
       <NavbarBrand>
-        <div
-          className="bg-white p-1 gap-0 mr-2 rounded-sm sm:hidden"
-          onClick={onOpen}
-        >
-          <Image width={'20px'} height={'20px'} src="/menu.png" alt="Menu" />
+        <div className="p-2 gap-0 mr-2 sm:hidden" onClick={onOpen}>
+          <Image
+            width={'30px'}
+            height={'30px'}
+            src={theme === 'dark' ? '/menu-dark.png' : 'menu-light.png'}
+            alt="Menu"
+          />
         </div>
         <p className="font-bold text-inherit">Profilo</p>
       </NavbarBrand>
@@ -68,25 +70,25 @@ const NavbarCom = () => {
         <NavbarItem>
           {theme === 'dark' ? (
             <div
-              className="bg-white w-full cursor-pointer p-1 rounded-full"
+              className="w-full cursor-pointer p-1"
               onClick={() => setTheme('light')}
             >
               <Image
                 width={'25px'}
                 height={'25px'}
-                src="/dark.png"
+                src="/light.png"
                 alt="Dark mode"
               />
             </div>
           ) : (
             <div
-              className="w-full cursor-pointer p-1 rounded-full bg-[#ccc]"
+              className="w-full cursor-pointer p-1"
               onClick={() => setTheme('dark')}
             >
               <Image
                 width={'25px'}
                 height={'25px'}
-                src="/light.png"
+                src="/dark.png"
                 alt="Light mode"
               />
             </div>
@@ -111,31 +113,31 @@ const NavbarCom = () => {
                 <div>
                   {theme === 'dark' ? (
                     <div
-                      className="bg-white cursor-pointer p-1 rounded-full w-7"
+                      className="cursor-pointer p-1 w-full"
                       onClick={() => {
                         setTheme('light');
                         onClose();
                       }}
                     >
                       <Image
-                        width={'25px'}
-                        height={'25px'}
-                        src="/dark.png"
+                        width={'35px'}
+                        height={'35px'}
+                        src="/light.png"
                         alt="Dark mode"
                       />
                     </div>
                   ) : (
                     <div
-                      className="w-7 cursor-pointer p-1 rounded-full bg-[#ccc]"
+                      className="w-full cursor-pointer p-1"
                       onClick={() => {
                         setTheme('dark');
                         onClose();
                       }}
                     >
                       <Image
-                        width={'25px'}
-                        height={'25px'}
-                        src="/light.png"
+                        width={'35px'}
+                        height={'35px'}
+                        src="/dark.png"
                         alt="Light mode"
                       />
                     </div>
