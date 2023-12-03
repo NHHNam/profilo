@@ -32,8 +32,8 @@ const NavbarCom = () => {
     <Navbar isBordered onMenuOpenChange={setIsMenuOpen} className="mb-2">
       <NavbarBrand>
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="sm:hidden mr-2"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         />
         <p className="font-bold text-inherit">Profilo</p>
       </NavbarBrand>
