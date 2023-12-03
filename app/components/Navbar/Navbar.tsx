@@ -20,7 +20,6 @@ import { useEffect, useState } from 'react';
 const NavbarCom = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const menuItems = ['Home', 'About', 'Contact'];
@@ -34,21 +33,11 @@ const NavbarCom = () => {
   return (
     <Navbar isBordered className="mb-2">
       <NavbarBrand>
-        {/* <NavbarMenuToggle
-          className="sm:hidden mr-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        /> */}
         <div
           className="bg-white p-1 gap-0 mr-2 rounded-sm sm:hidden"
           onClick={onOpen}
         >
-          <Image
-            width={'20px'}
-            height={'20px'}
-            src="/menu.png"
-            alt="Menu"
-            className="rounded-full"
-          />
+          <Image width={'20px'} height={'20px'} src="/menu.png" alt="Menu" />
         </div>
         <p className="font-bold text-inherit">Profilo</p>
       </NavbarBrand>
