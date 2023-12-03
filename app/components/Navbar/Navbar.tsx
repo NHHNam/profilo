@@ -29,12 +29,7 @@ const NavbarCom = () => {
   if (!mounted) return null;
 
   return (
-    <Navbar
-      onMenuOpenChange={setIsMenuOpen}
-      isBordered
-      isMenuOpen={isMenuOpen}
-      className="mb-2"
-    >
+    <Navbar isBordered className="mb-2">
       <NavbarBrand>
         <NavbarMenuToggle className="sm:hidden mr-2" />
         <p className="font-bold text-inherit">Profilo</p>
