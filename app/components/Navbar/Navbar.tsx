@@ -6,9 +6,11 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  useDisclosure
 } from '@nextui-org/react';
 import { Image } from '@nextui-org/react';
 
@@ -19,6 +21,7 @@ const NavbarCom = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const menuItems = ['Home', 'About', 'Contact'];
 
@@ -29,12 +32,24 @@ const NavbarCom = () => {
   if (!mounted) return null;
 
   return (
-    <Navbar isBordered onMenuOpenChange={setIsMenuOpen} className="mb-2">
+    <Navbar isBordered className="mb-2">
       <NavbarBrand>
-        <NavbarMenuToggle
+        {/* <NavbarMenuToggle
           className="sm:hidden mr-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-        />
+        /> */}
+        <div
+          className="bg-white p-1 gap-0 mr-2 rounded-sm sm:hidden"
+          onClick={onOpen}
+        >
+          <Image
+            width={'20px'}
+            height={'20px'}
+            src="/menu.png"
+            alt="Menu"
+            className="rounded-full"
+          />
+        </div>
         <p className="font-bold text-inherit">Profilo</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
@@ -89,52 +104,49 @@ const NavbarCom = () => {
           )}
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? 'primary'
-                  : index === menuItems.length - 1
-                  ? 'danger'
-                  : 'foreground'
-              }
-              className="w-full"
-              href={`/${item === 'Home' ? '' : item.toLowerCase()}`}
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-        <NavbarMenuItem>
-          {theme === 'dark' ? (
-            <div
-              className="bg-white cursor-pointer p-1 rounded-full w-7"
-              onClick={() => setTheme('light')}
-            >
-              <Image
-                width={'25px'}
-                height={'25px'}
-                src="/dark.png"
-                alt="Dark mode"
-              />
-            </div>
-          ) : (
-            <div
-              className="w-7 cursor-pointer p-1 rounded-full bg-[#ccc]"
-              onClick={() => setTheme('dark')}
-            >
-              <Image
-                width={'25px'}
-                height={'25px'}
-                src="/light.png"
-                alt="Light mode"
-              />
-            </div>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="full">
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader>Menu</ModalHeader>
+              <ModalBody>
+                {menuItems.map((item) => (
+                  <Link href={`/${item === 'Home' ? '' : item.toLowerCase()}`}>
+                    <p className="text-lg font-medium">{item}</p>
+                  </Link>
+                ))}
+                <div>
+                  {theme === 'dark' ? (
+                    <div
+                      className="bg-white cursor-pointer p-1 rounded-full w-7"
+                      onClick={() => setTheme('light')}
+                    >
+                      <Image
+                        width={'25px'}
+                        height={'25px'}
+                        src="/dark.png"
+                        alt="Dark mode"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="w-7 cursor-pointer p-1 rounded-full bg-[#ccc]"
+                      onClick={() => setTheme('dark')}
+                    >
+                      <Image
+                        width={'25px'}
+                        height={'25px'}
+                        src="/light.png"
+                        alt="Light mode"
+                      />
+                    </div>
+                  )}
+                </div>
+              </ModalBody>
+            </>
           )}
-        </NavbarMenuItem>
-      </NavbarMenu>
+        </ModalContent>
+      </Modal>
     </Navbar>
   );
 };
