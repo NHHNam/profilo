@@ -29,9 +29,12 @@ const NavbarCom = () => {
   if (!mounted) return null;
 
   return (
-    <Navbar isBordered className="mb-2">
+    <Navbar isBordered onMenuOpenChange={setIsMenuOpen} className="mb-2">
       <NavbarBrand>
-        <NavbarMenuToggle className="sm:hidden mr-2" />
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          className="sm:hidden mr-2"
+        />
         <p className="font-bold text-inherit">Profilo</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
