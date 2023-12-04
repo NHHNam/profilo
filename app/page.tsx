@@ -1,23 +1,26 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Avatar, Button } from '@nextui-org/react';
+import { Avatar, Button, Image } from '@nextui-org/react';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
       <div className="flex justify-center items-center flex-col gap-x-1 p-2 sm:p-0">
-        <div className="sm:w-[1080px]">
+        <div className="sm:w-[600px]">
           <div className="flex justify-between items-center flex-col sm:flex-row">
-            <h1 className="break-normal max-w-[600px] text-center text-2xl font-medium">
-              NGUYEN HUNG HOAI NAM
-            </h1>
+            <div>
+              <h1 className="break-normal max-w-[600px] text-center text-3xl font-black">
+                NGUYEN HUNG HOAI NAM
+              </h1>
+              <p>( FRESHER NODEJS DEVELOPER )</p>
+            </div>
             <Avatar
               src="https://nt.global.ssl.fastly.net/binaries/content/gallery/website/national/regions/worcestershire-herefordshire/places/clent-hills/library/autumn/beech-tree-clent-hills-worcestershire-1591489.jpg"
               className="w-[200px] h-[200px]"
             />
           </div>
           <div>
-            <div className="font-medium text-lg underline decoration-gray-300 decoration-8 mb-4 items-center">
+            <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 items-center">
               Works
             </div>
             <p>
@@ -27,27 +30,25 @@ export default function Home() {
               designing all the way to solving real-life problems with code.
             </p>
             <div className="items-center text-center mt-5">
-              <Button size="sm" className="bg-[#74b5b3]">
-                <Link
-                  className="text-normal hover:underline text-white"
-                  href="/works"
-                  aria-current="page"
-                >
-                  My Portfolio
-                </Link>
-              </Button>
+              <Link
+                className="text-normal text-white bg-[#74b5b3] p-2 rounded-lg hover:bg-[#6cc3c0]"
+                href="/works"
+                aria-current="page"
+              >
+                My Portfolio
+              </Link>
             </div>
           </div>
           <div>
-            <div className="font-medium text-lg underline decoration-gray-300 decoration-8 mb-4 mt-5">
+            <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
               Bio
             </div>
             <div>
-              <span className="font-bold text-xl">2001</span>
+              <span className="text-xl font-medium">2001</span>
               <span className="ml-2">Born in Ho Chi Minh City, Vietnam</span>
             </div>
             <div>
-              <span className="font-bold text-xl">2023</span>
+              <span className="font-medium text-xl">2023</span>
               <span className="ml-2">
                 Graduated Program Compter Science of Ton Duc Thang University
               </span>
@@ -55,7 +56,7 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="font-medium text-lg underline decoration-gray-300 decoration-8 mb-4 mt-5">
+            <div className="font-medium text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
               I ♥
             </div>
             <div>Music, Novel, Game</div>

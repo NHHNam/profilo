@@ -2,12 +2,12 @@
 
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import { Poppins } from 'next/font/google';
+import { Poppins, Roboto } from 'next/font/google';
 
 const popppins = Poppins({
-  weight: '400',
+  weight: '300',
   style: 'normal',
-  subsets: ['latin-ext']
+  subsets: ['latin', 'latin-ext']
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
