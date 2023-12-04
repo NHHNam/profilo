@@ -94,7 +94,7 @@ const NavbarCom = () => {
             target="_blank"
             aria-current="page"
           >
-            <Image width={20} height={20} src="/github-sign.png" />
+            <Image width={20} height={20} src="/github.png" alt="Github" />
           </Link>
         </NavbarItem>
         <NavbarItem>
