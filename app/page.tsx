@@ -14,10 +14,7 @@ export default function Home() {
               </h1>
               <p>( FRESHER NODEJS DEVELOPER )</p>
             </div>
-            <Avatar
-              src="https://nt.global.ssl.fastly.net/binaries/content/gallery/website/national/regions/worcestershire-herefordshire/places/clent-hills/library/autumn/beech-tree-clent-hills-worcestershire-1591489.jpg"
-              className="w-[200px] h-[200px]"
-            />
+            <Avatar src="/avatar.jpg" className="w-[200px] h-[200px]" />
           </div>
           <div>
             <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 items-center">

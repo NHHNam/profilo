@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Profilo',
   description: 'Profilo',
   icons: {
-    icon: './favicon.ico'
+    icon: './logo.png'
   }
 };
 

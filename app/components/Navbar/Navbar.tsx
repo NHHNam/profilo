@@ -88,6 +88,16 @@ const NavbarCom = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
+          <Link
+            className={`text-normal hover:underline p-2 rounded-lg`}
+            href="https://github.com/hoainam2001"
+            target="_blank"
+            aria-current="page"
+          >
+            <Image width={20} height={20} src="/github-sign.png" />
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
           {theme === 'dark' ? (
             <Button
               size="sm"
