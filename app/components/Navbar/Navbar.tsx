@@ -23,7 +23,7 @@ const NavbarCom = () => {
   const { theme, setTheme } = useTheme();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const menuItems = ['Home', 'Work', 'Contact'];
+  const menuItems = ['Home', 'Works', 'Contact'];
 
   useEffect(() => {
     setMounted(true);
