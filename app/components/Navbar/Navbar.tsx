@@ -78,7 +78,7 @@ const NavbarCom = () => {
         <NavbarItem>
           <Link
             className={`text-normal hover:underline p-2 rounded-lg`}
-            href="https://github.com/hoainam2001"
+            href="https://github.com/NHHNam"
             target="_blank"
             aria-current="page"
           >

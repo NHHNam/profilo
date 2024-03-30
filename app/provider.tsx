@@ -2,7 +2,7 @@
 
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import { Poppins, Roboto } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
 const popppins = Poppins({
   weight: '300',

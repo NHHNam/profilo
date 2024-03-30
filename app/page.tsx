@@ -12,7 +12,7 @@ export default function Home() {
               <h1 className="break-normal max-w-[600px] text-center text-3xl font-black">
                 NGUYEN HUNG HOAI NAM
               </h1>
-              <p>( FRESHER NODEJS DEVELOPER )</p>
+              <p>( FULLSTACK DEVELOPER )</p>
             </div>
             <Avatar src="/avatar.jpg" className="w-[200px] h-[200px]" />
           </div>
@@ -26,15 +26,6 @@ export default function Home() {
               has a knack for all things launching products, from planning and
               designing all the way to solving real-life problems with code.
             </p>
-            <div className="items-center text-center mt-5">
-              <Link
-                className="text-normal text-white bg-[#74b5b3] p-2 rounded-lg hover:bg-[#6cc3c0]"
-                href="/works"
-                aria-current="page"
-              >
-                My Portfolio
-              </Link>
-            </div>
           </div>
           <div>
             <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
@@ -49,6 +40,40 @@ export default function Home() {
               <span className="ml-2">
                 Graduated Program Compter Science of Ton Duc Thang University
               </span>
+            </div>
+          </div>
+
+          <div>
+            <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
+              <div className="">Programming</div>
+            </div>
+            <div>
+              <div>
+                <span className="text-xl font-medium">Languages: </span>
+                <span className="ml-2">C#, Javascript, Typescript</span>
+              </div>
+
+              <div>
+                <span className="text-xl font-medium">Frameworks: </span>
+                <span className="ml-2">
+                  ReactJS, NestJS, ExpressJS, ASP.NET Api Core
+                </span>
+              </div>
+
+              <div>
+                <span className="text-xl font-medium">Databases: </span>
+                <span className="ml-2">SQL Server, MYSQL, MongoDB</span>
+              </div>
+
+              <div>
+                <span className="text-xl font-medium">Source Version: </span>
+                <span className="ml-2">Git bash</span>
+              </div>
+
+              <div>
+                <span className="text-xl font-medium">Source management: </span>
+                <span className="ml-2">Github</span>
+              </div>
             </div>
           </div>
 
