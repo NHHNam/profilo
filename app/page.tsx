@@ -79,6 +79,20 @@ export default function Home() {
 
           <div>
             <div className="font-medium text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
+              Contacts
+            </div>
+            <div>
+              <span className="text-xl font-medium">Mobile phone: </span>
+              <span className="ml-2">0773762943</span>
+            </div>
+            <div>
+              <span className="text-xl font-medium">Email: </span>
+              <span className="ml-2">nguyenhunghoainam.dev@gmail.com</span>
+            </div>
+          </div>
+
+          <div>
+            <div className="font-medium text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
               I ♥
             </div>
             <div>Music, Novel, Game</div>
