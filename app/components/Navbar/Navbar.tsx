@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -19,9 +19,13 @@ import { usePathname } from 'next/navigation';
 const NavbarCom = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+  const { systemTheme, theme, setTheme } = useTheme();
 
   const menuItems = ['Works'];
+
+  useEffect(() => {
+    setTheme(systemTheme ?? 'light');
+  }, [setTheme, systemTheme]);
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
