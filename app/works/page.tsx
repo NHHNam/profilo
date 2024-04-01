@@ -10,7 +10,12 @@ const WorksPage = () => {
         <div className="sm:w-[800px]">
           <div>
             <div className="font-black text-lg">Works</div>
-            <div className="mt-3">
+            <Link
+              className="mt-3"
+              href="https://shopcoinusa.com/"
+              target="_blank"
+              aria-current="page"
+            >
               <Image
                 width={'full'}
                 height={'full'}
@@ -18,19 +23,19 @@ const WorksPage = () => {
                 alt="Shopcoin"
               />
               <div className="text-center mt-3">
-                <Link
-                  className={`text-[23px] hover:underline p-2 rounded-lg font-bold`}
-                  href="https://shopcoinusa.com/"
-                  target="_blank"
-                  aria-current="page"
-                >
+                <div className={`text-[23px] p-2 rounded-lg font-bold`}>
                   Shopcoin
-                </Link>
+                </div>
                 <div className="text-center">A Trading Coin App</div>
               </div>
-            </div>
+            </Link>
 
-            <div className="mt-3">
+            <Link
+              href="https://aiking.com.vn/services/fund/home"
+              target="_blank"
+              aria-current="page"
+              className="mt-3"
+            >
               <Image
                 width={'full'}
                 height={'full'}
@@ -38,17 +43,12 @@ const WorksPage = () => {
                 alt="Shopcoin"
               />
               <div className="text-center mt-3">
-                <Link
-                  className={`text-[23px] hover:underline p-2 rounded-lg font-bold`}
-                  href="https://aiking.com.vn/services/fund/home"
-                  target="_blank"
-                  aria-current="page"
-                >
+                <div className={`text-[23px] p-2 rounded-lg font-bold`}>
                   Fund
-                </Link>
+                </div>
                 <div className="text-center">A Fund App</div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="font-black text-lg">Old Works</div>
         </div>

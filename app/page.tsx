@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Avatar, Button, Image } from '@nextui-org/react';
-import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -12,12 +11,14 @@ export default function Home() {
               <h1 className="break-normal max-w-[600px] text-center text-3xl font-black">
                 NGUYEN HUNG HOAI NAM
               </h1>
-              <p>( FULLSTACK DEVELOPER )</p>
+              <h5 className="break-normal max-w-[600px] text-center font-black">
+                ( FULLSTACK DEVELOPER )
+              </h5>
             </div>
             <Avatar src="/avatar.jpg" className="w-[200px] h-[200px]" />
           </div>
           <div>
-            <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 items-center">
+            <div className="font-bold text-2xl underline decoration-[#525252] decoration-4 mb-4 items-center">
               Works
             </div>
             <p>
@@ -28,7 +29,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
+            <div className="text-2xl underline decoration-[#525252] decoration-4 mb-4 mt-5 font-bold">
               Bio
             </div>
             <div>
@@ -44,7 +45,7 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="font-black text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
+            <div className="font-bold text-2xl underline decoration-[#525252] decoration-4 mb-4 mt-5">
               <div className="">Programming</div>
             </div>
             <div>
@@ -78,7 +79,7 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="font-medium text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
+            <div className="text-2xl underline decoration-[#525252] decoration-4 mb-4 mt-5 font-bold">
               Contacts
             </div>
             <div>
@@ -92,7 +93,7 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="font-medium text-lg underline decoration-[#525252] decoration-8 mb-4 mt-5">
+            <div className="font-bold text-2xl underline decoration-[#525252] decoration-4 mb-4 mt-5">
               I ♥
             </div>
             <div>Music, Novel, Game</div>
