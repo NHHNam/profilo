@@ -5,8 +5,8 @@ import NavbarCom from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
 export const metadata: Metadata = {
-  title: 'Profilo',
-  description: 'Profilo',
+  title: 'Nguyen Hung Hoai Nam',
+  description: 'Nguyen Hung Hoai Nam',
   icons: {
     icon: './logo.png'
   }
