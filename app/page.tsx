@@ -101,7 +101,7 @@ export default function Home() {
               <div>
                 <span className="text-xl font-medium">Databases: </span>
                 <span className="ml-2">
-                  SQL Server, MYSQL, MongoDB, PostgresSQL, Redis
+                  SQL Server, MYSQL, MongoDB, PostgreSQL, Redis
                 </span>
               </div>
 
