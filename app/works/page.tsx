@@ -1,6 +1,6 @@
 'use client';
 import { Image } from '@nextui-org/react';
-import React, { use } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 const WorksPage = () => {
@@ -24,7 +24,7 @@ const WorksPage = () => {
               />
               <div className="text-center mt-3">
                 <div className={`text-[23px] p-2 rounded-lg font-bold`}>
-                  Shopcoin
+                  1. Shopcoin
                 </div>
                 <div className="text-center">A Trading Coin App</div>
               </div>
@@ -40,17 +40,45 @@ const WorksPage = () => {
                 width={'full'}
                 height={'full'}
                 src="/fund.png"
-                alt="Shopcoin"
+                alt="Fund"
               />
               <div className="text-center mt-3">
                 <div className={`text-[23px] p-2 rounded-lg font-bold`}>
-                  Fund
+                  2. Fund
                 </div>
                 <div className="text-center">A Fund App</div>
               </div>
             </Link>
+
+            <div className="mt-3">
+              <div className="text-center mt-3">
+                <div className={`text-[23px] p-2 rounded-lg font-bold`}>
+                  3. Data Central
+                </div>
+                <div className="text-center">
+                  The platform collects Amazon orders and
+                  distributes/synchronizes the data to other systems
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div className="text-center mt-3">
+                <div className={`text-[23px] p-2 rounded-lg font-bold`}>
+                  4. Information portal
+                </div>
+                <div className="text-center">Military information portal</div>
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div className="text-center mt-3">
+                <div className={`text-[23px] p-2 rounded-lg font-bold`}>
+                  5. Flight Plans
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="font-black text-lg">Old Works</div>
         </div>
       </div>
     </>

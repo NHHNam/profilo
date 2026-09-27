@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -9,23 +9,87 @@ import {
   Button,
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem
+  NavbarMenuItem,
+  Image
 } from '@nextui-org/react';
-import { Image } from '@nextui-org/react';
 
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 
 const NavbarCom = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const menuItems = ['Works'];
 
   useEffect(() => {
-    setTheme(systemTheme ?? 'light');
-  }, [setTheme, systemTheme]);
+    setMounted(true);
+  }, []);
+
+  const renderThemeButton = () => {
+    if (!mounted) {
+      return (
+        <Button size="sm" className="w-[100px] opacity-0" aria-label="Toggle theme">
+          <div className="w-[20px] h-[20px]" />
+        </Button>
+      );
+    }
+
+    return theme === 'dark' ? (
+      <Button
+        size="sm"
+        onClick={() => setTheme('light')}
+        className="bg-[#fbd38e] w-[100px]"
+        aria-label="Switch to light mode"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          focusable="false"
+          className="w-[20px] h-[20px]"
+          aria-hidden="true"
+        >
+          <g
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeWidth="2"
+            fill="none"
+            stroke="currentColor"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2"></path>
+            <path d="M12 21v2"></path>
+            <path d="M4.22 4.22l1.42 1.42"></path>
+            <path d="M18.36 18.36l1.42 1.42"></path>
+            <path d="M1 12h2"></path>
+            <path d="M21 12h2"></path>
+            <path d="M4.22 19.78l1.42-1.42"></path>
+            <path d="M18.36 5.64l1.42-1.42"></path>
+          </g>
+        </svg>
+      </Button>
+    ) : (
+      <Button
+        size="sm"
+        className="bg-[#805ad5] w-[100px]"
+        onClick={() => setTheme('dark')}
+        aria-label="Switch to dark mode"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          focusable="false"
+          className="w-[20px] h-[20px]"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+          ></path>
+        </svg>
+      </Button>
+    );
+  };
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -35,11 +99,10 @@ const NavbarCom = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit ml-2">
+          <div className="font-bold text-inherit ml-2">
             <Link
-              color="foreground"
               href="/"
-              className={`text-normal p-2 rounded-lg cursor-pointer flex flex-row`}
+              className="text-normal p-2 rounded-lg cursor-pointer flex flex-row items-center"
             >
               <svg
                 width="20"
@@ -61,16 +124,15 @@ const NavbarCom = () => {
                 <path d="M32.114,11.35C32.114,11.35 29.196,13.155 30.864,16.589C32.532,20.023 34.677,19.25 36,18.588C37.322,17.927 38.02,14.778 35.931,12.665C33.843,10.551 32.114,11.35 32.114,11.35Z"></path>
                 <path d="M19.212,17.136C19.212,17.136 12.651,19.306 12.84,25.174C12.888,28.022 10.569,28.548 11.073,32.567C11.727,34.322 12.649,36.92 15.89,36.85C19.131,36.781 19.603,34.354 23.377,32.97C27.151,31.586 31.009,33.828 33.802,31.213C36.596,28.598 35.188,24.468 31.876,22.731C28.564,20.995 24.793,16.327 19.212,17.136Z"></path>
               </svg>
-              <div className="ml-1">NGUYEN HUNG HOAI NAM</div>
+              <span className="ml-1">NGUYEN HUNG HOAI NAM</span>
             </Link>
-          </p>
+          </div>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         <NavbarItem>
           <Link
-            color="foreground"
             href="/works"
             className={`text-normal hover:underline p-2 rounded-lg ${
               pathname === '/works' ? 'bg-[#88ccc9]' : ''
@@ -81,153 +143,45 @@ const NavbarCom = () => {
         </NavbarItem>
         <NavbarItem>
           <Link
-            className={`text-normal hover:underline p-2 rounded-lg`}
+            className="text-normal hover:underline p-2 rounded-lg"
             href="https://github.com/NHHNam"
             target="_blank"
-            aria-current="page"
+            rel="noopener noreferrer"
           >
             <Image width={20} height={20} src="/github.png" alt="Github" />
           </Link>
         </NavbarItem>
         <NavbarItem>
-          {theme === 'dark' ? (
-            <Button
-              size="sm"
-              onClick={() => setTheme('light')}
-              className="bg-[#fbd38e] w-[100px]"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                focusable="false"
-                className="w-[20px] h-[20px]"
-                aria-hidden="true"
-              >
-                <g
-                  stroke-linejoin="round"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <circle cx="12" cy="12" r="5"></circle>
-                  <path d="M12 1v2"></path>
-                  <path d="M12 21v2"></path>
-                  <path d="M4.22 4.22l1.42 1.42"></path>
-                  <path d="M18.36 18.36l1.42 1.42"></path>
-                  <path d="M1 12h2"></path>
-                  <path d="M21 12h2"></path>
-                  <path d="M4.22 19.78l1.42-1.42"></path>
-                  <path d="M18.36 5.64l1.42-1.42"></path>
-                </g>
-              </svg>
-            </Button>
-          ) : (
-            <Button
-              size="sm"
-              className="bg-[#805ad5] w-[100px]"
-              onClick={() => setTheme('dark')}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                focusable="false"
-                className="w-[20px] h-[20px]"
-                aria-hidden="true"
-              >
-                <path
-                  fill="currentColor"
-                  d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
-                ></path>
-              </svg>
-            </Button>
-          )}
+          {renderThemeButton()}
         </NavbarItem>
       </NavbarContent>
 
       {/* mobile navbar */}
-      <NavbarMenu>
+      <NavbarMenu className="pt-6 flex flex-col gap-4">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={
-                index === 2
-                  ? 'primary'
-                  : index === menuItems.length - 1
-                  ? 'danger'
-                  : 'foreground'
-              }
-              className="w-full"
+              className="w-full text-lg"
               href={`/${item.toLowerCase()}`}
             >
               {item}
             </Link>
-            <div>
-              <Link
-                className={`text-normal hover:underline p-2 rounded-lg`}
-                href="https://github.com/NHHNam"
-                target="_blank"
-                aria-current="page"
-              >
-                <Image width={30} height={30} src="/github.png" alt="Github" />
-              </Link>
-            </div>
-            <div>
-              {theme === 'dark' ? (
-                <Button
-                  size="sm"
-                  onClick={() => {
-                    setTheme('light');
-                  }}
-                  className="bg-[#fbd38e] w-[100px]"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    focusable="false"
-                    className="w-[20px] h-[20px]"
-                    aria-hidden="true"
-                  >
-                    <g
-                      stroke-linejoin="round"
-                      stroke-linecap="round"
-                      stroke-width="2"
-                      fill="none"
-                      stroke="currentColor"
-                    >
-                      <circle cx="12" cy="12" r="5"></circle>
-                      <path d="M12 1v2"></path>
-                      <path d="M12 21v2"></path>
-                      <path d="M4.22 4.22l1.42 1.42"></path>
-                      <path d="M18.36 18.36l1.42 1.42"></path>
-                      <path d="M1 12h2"></path>
-                      <path d="M21 12h2"></path>
-                      <path d="M4.22 19.78l1.42-1.42"></path>
-                      <path d="M18.36 5.64l1.42-1.42"></path>
-                    </g>
-                  </svg>
-                </Button>
-              ) : (
-                <Button
-                  size="sm"
-                  className="bg-[#805ad5] w-[100px]"
-                  onClick={() => {
-                    setTheme('dark');
-                  }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    focusable="false"
-                    className="w-[20px] h-[20px]"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
-                    ></path>
-                  </svg>
-                </Button>
-              )}
-            </div>
           </NavbarMenuItem>
         ))}
+        <NavbarMenuItem>
+          <Link
+            className="flex items-center gap-2 text-normal hover:underline p-2 rounded-lg"
+            href="https://github.com/NHHNam"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image width={24} height={24} src="/github.png" alt="Github" />
+            <span>Github</span>
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          {renderThemeButton()}
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );
