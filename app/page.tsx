@@ -68,7 +68,7 @@ export default function Home() {
               </span>
             </div>
             <div>
-              <span className="font-medium text-xl">2025 - Feb 2027</span>
+              <span className="font-medium text-xl">2025 - Now</span>
               <span className="ml-2">
                 <span>Worked as a Full-Stack Developer at </span>
                 <strong className="font-bold">Military </strong>
