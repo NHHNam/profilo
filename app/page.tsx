@@ -49,7 +49,7 @@ export default function Home() {
               <span className="font-medium text-xl">2022 - 2024</span>
               <span className="ml-2">
                 <span>Worked as a Full-Stack Developer at </span>
-                <span className="font-bold">Aiking Investment </span>
+                <span className="font-bold">Aiking Investment, </span>
                 <span>
                   responsible for developing features, fixing issues, and
                   maintaining Fintech applications.
@@ -60,7 +60,7 @@ export default function Home() {
               <span className="font-medium text-xl">April 2024 - Feb 2025</span>
               <span className="ml-2">
                 <span>Worked as a Full-Stack Developer at </span>
-                <strong className="font-bold">HDWebsoft </strong>
+                <strong className="font-bold">HDWebsoft, </strong>
                 <span>
                   responsible for developing features, fixing issues, and
                   maintaining data central application .
@@ -71,9 +71,9 @@ export default function Home() {
               <span className="font-medium text-xl">2025 - Now</span>
               <span className="ml-2">
                 <span>Worked as a Full-Stack Developer at </span>
-                <strong className="font-bold">Military </strong>
+                <strong className="font-bold">Military, </strong>
                 <span>
-                  Responsible for developing features, resolving issues, and
+                  responsible for developing features, resolving issues, and
                   maintaining digital transformation applications for paperwork
                   management and operational processes.
                 </span>

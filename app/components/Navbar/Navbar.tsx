@@ -31,7 +31,11 @@ const NavbarCom = () => {
   const renderThemeButton = () => {
     if (!mounted) {
       return (
-        <Button size="sm" className="w-[100px] opacity-0" aria-label="Toggle theme">
+        <Button
+          size="sm"
+          className="w-[100px] opacity-0"
+          aria-label="Toggle theme"
+        >
           <div className="w-[20px] h-[20px]" />
         </Button>
       );
@@ -92,7 +96,7 @@ const NavbarCom = () => {
   };
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -103,6 +107,7 @@ const NavbarCom = () => {
             <Link
               href="/"
               className="text-normal p-2 rounded-lg cursor-pointer flex flex-row items-center"
+              onClick={() => setIsMenuOpen(false)}
             >
               <svg
                 width="20"
@@ -151,9 +156,7 @@ const NavbarCom = () => {
             <Image width={20} height={20} src="/github.png" alt="Github" />
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          {renderThemeButton()}
-        </NavbarItem>
+        <NavbarItem>{renderThemeButton()}</NavbarItem>
       </NavbarContent>
 
       {/* mobile navbar */}
@@ -163,6 +166,7 @@ const NavbarCom = () => {
             <Link
               className="w-full text-lg"
               href={`/${item.toLowerCase()}`}
+              onClick={() => setIsMenuOpen(false)}
             >
               {item}
             </Link>
@@ -174,14 +178,13 @@ const NavbarCom = () => {
             href="https://github.com/NHHNam"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => setIsMenuOpen(false)}
           >
             <Image width={24} height={24} src="/github.png" alt="Github" />
             <span>Github</span>
           </Link>
         </NavbarMenuItem>
-        <NavbarMenuItem>
-          {renderThemeButton()}
-        </NavbarMenuItem>
+        <NavbarMenuItem>{renderThemeButton()}</NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );
