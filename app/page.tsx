@@ -22,10 +22,11 @@ export default function Home() {
               Works
             </div>
             <p>
-              I'm a freelance and a full-stack developer based in Ho Chi Minh
-              with a passion for building digital services/stuff he wants. He
-              has a knack for all things launching products, from planning and
-              designing all the way to solving real-life problems with code.
+              I'm a freelance full-stack developer based in Ho Chi Minh City,
+              passionate about building digital products and services that solve
+              real-world problems. I enjoy taking ideas from concept to
+              reality—from planning and designing to developing, launching, and
+              refining products with code.
             </p>
           </div>
           <div>
